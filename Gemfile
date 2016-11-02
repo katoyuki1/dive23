@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #ログイン機能
 gem 'devise'
 
+#image uploader
+gem 'carrierwave'
+gem 'rmagick'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
