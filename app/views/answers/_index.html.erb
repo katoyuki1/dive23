@@ -1,12 +1,10 @@
-<div class="row">
-  <% answers.each do |answer| %>
-    <% unless answer.id.nil? %>
-      <p><%= answer.content %></p>
-      <p><%= answer.user.name %></p>
-      <% if current_user.id == answer.user.id %>
-        <%= link_to 'この回答を改善する', edit_question_answer(question, answer) %>
-        <%= link_to 'この回答を削除する', question_answer(question, answer), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-      <% end %>
+<% answers.each do |answer| %>
+  <% unless answer.id.nil? %>
+    <p><%= answer.content %></p>
+    <p><%= answer.user.name %></p>
+    <% if current_user.id == answer.user.id %>
+      <%= link_to 'この回答を改善する', edit_question_answer_path(question, answer) %>
+      <%= link_to 'この回答を削除する', question_answer_path(question, answer), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
     <% end %>
   <% end %>
-</div>
+<% end %>
