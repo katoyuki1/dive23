@@ -1,11 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action  :set_question_tags_to_gon, only: [:edit]
   before_action :authenticate_user!
 
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.includes(:tags)
   end
 
   # GET /questions/1
@@ -71,6 +72,10 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :content, :tag_list)
+    end
+
+    def set_question_tags_to_gon
+      gon.question_tags = @question.tag_list
     end
 end

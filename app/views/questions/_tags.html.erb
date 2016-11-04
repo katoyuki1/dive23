@@ -1,0 +1,3 @@
+<% tags.each do |tag|%>
+  <%= link_to "#{tag.name} (#{tag.taggings_count})", questions_path(tag: tag.name) %>
+<% end %>
