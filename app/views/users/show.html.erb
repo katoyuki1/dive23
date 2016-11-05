@@ -3,3 +3,25 @@
 <p>ID：<%= @user.id %><p>
 <p>名前：<%= @user.name %><p>
 <p>メールアドレス：<%= @user.email %><p>
+
+<br>
+
+<h4>質問（*ここにカウントが入るようにする*）</h4>
+<% unless @questions.blank? %>
+  <% @questions.each do |question| %>
+    <ul>
+      <li><%= link_to question.title, question %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<br>
+
+<h4>回答（*ここにカウントが入るようにする*）</h4>
+<% unless @answers.blank? %>
+  <% @answers.each do |answer| %>
+    <ul>
+      <li><%= link_to answer.question.title, answer %></li>
+    </ul>
+  <% end %>
+<% end %>
