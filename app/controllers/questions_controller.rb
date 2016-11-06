@@ -6,7 +6,8 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all.includes(:tags)
+    @questions = params[:tag].present? ? Question.tagged_with(params[:tag]) :Question.all
+    @questions = @questions.includes(:tags)
   end
 
   # GET /questions/1
