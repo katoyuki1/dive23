@@ -1,0 +1,21 @@
+<%= form_for([question, answer]) do |f| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :question_id %>
+  <div class="field">
+    <%= f.text_area :content, class: "form-control"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit "回答を投稿", class: "btn btn-primary" %>
+  </div>
+<% end %>
