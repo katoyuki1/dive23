@@ -19,7 +19,8 @@ before_action :authenticate_user!
 
   	respond_to do |format|
   	  if @favorite.destroy
-      format.html { redirect_to question_path(@question), notice: 'お気に入りから削除しました' }
+        format.html { redirect_to question_path(@question), notice: 'お気に入りから削除しました' }
+      end
     end
   end
 end
