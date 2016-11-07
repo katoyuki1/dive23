@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  def favorite?(question)
+    self.favorites.find_by(question_id: question.id)
+  end
 end

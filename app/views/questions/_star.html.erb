@@ -1,4 +1,6 @@
-<tr>
-<td><%= link_to "星追加", question_favorites_path(question), method: :post %></td>
-<td><%= link_to "星削除", question_favorite_path(question, question.favorites.find_by(user_id: current_user.id)), method: :delete %></td>
-</tr>
+<% if current_user.favorite?(question) %>
+  <%= link_to "星削除", question_favorite_path(question, question.favorites.find_by(user_id: current_user.id)), method: :delete %>
+<% else %>
+  <%= link_to "星追加", question_favorites_path(question), method: :post %>
+<% end %>
+</br>
