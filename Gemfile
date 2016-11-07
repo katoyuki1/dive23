@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #Bootstrap
 gem 'twitter-bootstrap-rails'
-
+gem "font-awesome-rails"
 #image uploader
 gem 'carrierwave'
 gem 'rmagick'
