@@ -1,6 +1,9 @@
 <% if current_user.favorite?(question) %>
-  <%= link_to "星削除", question_favorite_path(question, question.favorites.find_by(user_id: current_user.id)), method: :delete %>
+  <%= link_to question_favorite_path(question, question.favorites.find_by(user_id: current_user.id)), method: :delete do %>
+    <p><i class="fa fa-star fa-3x gray"></i></p>
+  <% end %>
 <% else %>
-  <%= link_to "星追加", question_favorites_path(question), method: :post %>
+  <%= link_to question_favorites_path(question), method: :post do %>
+    <p><i class="fa fa-star fa-3x yellow"></i></p>
+  <% end %>
 <% end %>
-</br>
