@@ -15,6 +15,11 @@
   <%= @question.user_id %>
 </p>
 
+<p>
+  <strong>Tag:</strong>
+  <%= render partial: 'tags', locals: { tags: @question.tags} %>
+</p>
+
   <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
   <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
 
