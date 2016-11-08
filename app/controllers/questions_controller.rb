@@ -1,7 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action  :set_question_tags_to_gon, only: [:edit]
+  before_action :set_question_tags_to_gon, only: [:edit]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -80,5 +81,12 @@ class QuestionsController < ApplicationController
 
     def set_question_tags_to_gon
       gon.question_tags = @question.tag_list
+    end
+
+    def correct_user 
+      @question = Question.find(params[:id])
+      unless @question.user_id == current_user.id
+        redirect_to questions_path, alert: "他人の投稿は変更・削除出来ません" 
+      end
     end
 end
