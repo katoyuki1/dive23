@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
-before_action :set_answer, only: [:edit, :update, :destroy]
+  before_action :set_answer, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def create
   	@answer = current_user.answers.build(answer_params)
@@ -45,5 +46,12 @@ before_action :set_answer, only: [:edit, :update, :destroy]
 
      def set_answer
       @answer = Answer.find(params[:id])
+    end
+
+    def correct_user 
+      @answer = Answer.find(params[:id])
+      unless @answer.user_id == current_user.id
+        redirect_to question_path(@answer.question), alert: "他人の回答は変更・削除出来ません" 
+      end
     end
 end
