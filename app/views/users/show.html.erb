@@ -6,7 +6,7 @@
 
 <br>
 
-<h4>質問（*ここにカウントが入るようにする*）</h4>
+<h4>質問（<%= question_count(@user) %>）</h4>
 <% unless @questions.blank? %>
   <% @questions.each do |question| %>
     <ul>
@@ -17,7 +17,7 @@
 
 <br>
 
-<h4>回答（*ここにカウントが入るようにする*）</h4>
+<h4>回答（<%= answer_count(@user) %>）</h4>
 <% unless @answers.blank? %>
   <% @answers.each do |answer| %>
     <ul>
