@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
 
+<%= render partial: 'star', locals: { question: @question } %>
+
 <p>
   <strong>Title:</strong>
   <%= @question.title %>
