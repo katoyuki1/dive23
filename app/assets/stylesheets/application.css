@@ -16,3 +16,9 @@
  *= require font-awesome
  *= require_self
  */
+
+/*for header*/
+.hlogo {
+	width: 232px;
+	height: 70px;
+}
