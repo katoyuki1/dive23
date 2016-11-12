@@ -2,10 +2,18 @@
   display: none;
 }
 
+/* for star botton */
 .yellow {
 	color: yellow;
 }
 
 .gray {
 	color: gray;
+}
+
+/* for question title on question#show */
+.row.question_title {
+	margin-bottom: 15px;
+	margin-left: 15px;
+	border-bottom:1px solid #ccc;
 }
