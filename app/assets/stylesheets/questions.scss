@@ -20,5 +20,11 @@
 
 /* for question contents on question#show */
 .question_content {
-  word-break: break-word;	
+  word-break: break-word;
+  margin-bottom: 20px;
+}
+
+/* for the erea for edit and destroy botton and submitter info */
+.question_btn_and_submitter {
+	margin-top: 15px;
 }
