@@ -13,7 +13,7 @@
       </div>
 
       <div class="col-sm-11">
-        <%= @question.content %>  
+        <div class="question_content"><%= simple_format(@question.content) %></div>
         <%= @question.user_id %>
         <%= render partial: 'tags', locals: { tags: @question.tags} %>
         <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
