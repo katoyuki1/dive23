@@ -2,6 +2,16 @@
   display: none;
 }
 
+/* for submit botton */
+.btn.submit {
+    color: #FFF;
+    margin-top: 10px;
+	background-color: #0095ff;
+    border-color: #07c;
+    border-radius: 1px;
+}
+
+/* for star botton */
 .yellow {
 	color: yellow;
 }
@@ -9,6 +19,48 @@
 .gray {
 	color: gray;
 }
+
+/* for question title on question#show */
+.row.question_title {
+	margin-bottom: 15px;
+	border-bottom:1px solid #ccc;
+}
+
+/* for question contents on question#show */
+.question_content {
+  word-break: break-word;
+  margin-bottom: 20px;
+}
+
+/* for the erea for edit and destroy botton and submitter info */
+.question_btn_and_submitter {
+	margin-top: 15px;
+}
+
+/* for number of answers */
+.row.answer_number {
+    font-size: 20px;
+	padding-top: 40px;
+	padding-bottom: 5px;
+	border-bottom:1px solid #ccc;
+}
+
+/* for answer rows*/
+.row.answer {
+	border-bottom:1px solid #ccc;
+	margin-top: 15px;
+}
+
+/* for answer box */
+.col-sm-11.answer_box {
+	margin-bottom: 15px;
+}
+
+/* for answer title above the answer input box */
+.row.answer_title {
+    font-size: 20px;
+	margin-top: 15px;
+	margin-bottom: 20px;
 
 .row.question_row {
 	border-bottom:1px solid #ccc;
