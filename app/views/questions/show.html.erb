@@ -26,15 +26,8 @@
       </div>
 
       <div class="row answer_number">x件の回答</div>
-      <div class="row answer">
-        <div class="col-sm-1 question_buttons">
-          <p>投票機能</p>
-        </div>
-        <div class="col-sm-11">
-        <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
-        <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
-        </div>
-      </div>
+      <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
+      <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
   </div>
 
   <div class="col-sm-3">

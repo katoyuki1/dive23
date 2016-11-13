@@ -14,7 +14,6 @@
 /* for question title on question#show */
 .row.question_title {
 	margin-bottom: 15px;
-	margin-left: 15px;
 	border-bottom:1px solid #ccc;
 }
 
@@ -22,9 +21,6 @@
 .question_content {
   word-break: break-word;
   margin-bottom: 20px;
-}
-.col-sm-1.question_buttons {
-  padding-left: 35px;
 }
 
 /* for the erea for edit and destroy botton and submitter info */
@@ -37,11 +33,16 @@
     font-size: 20px;
 	padding-top: 40px;
 	padding-bottom: 5px;
-	margin-left: 15px;
 	border-bottom:1px solid #ccc;
 }
 
-/* for answer box */
+/* for answer rows*/
 .row.answer {
-    margin-top: 15px;
+	border-bottom:1px solid #ccc;
+	margin-top: 15px;
+}
+
+/* for answer box */
+.col-sm-11.answer_box {
+	margin-bottom: 15px;
 }
