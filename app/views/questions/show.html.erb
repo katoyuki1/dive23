@@ -27,6 +27,8 @@
 
       <div class="row answer_number">x件の回答</div>
       <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
+
+      <div class="row answer_title">回答</div>
       <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
   </div>
 
