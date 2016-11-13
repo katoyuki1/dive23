@@ -16,6 +16,12 @@ class QuestionsController < ApplicationController
   def show
     @answer = @question.answers.build
     @answers = @question.answers
+    @vote_plus = Vote.where(question_id: @question.id, is_plus: true).count
+    @vote_minus = Vote.where(question_id: @question.id, is_plus: false).count
+    @vote_count = @vote_plus + (-1)*@vote_minus
+    if @vote_count.blank?
+      @vote_count = 0
+    end
   end
 
   # GET /questions/new
@@ -83,10 +89,10 @@ class QuestionsController < ApplicationController
       gon.question_tags = @question.tag_list
     end
 
-    def correct_user 
+    def correct_user
       @question = Question.find(params[:id])
       unless @question.user_id == current_user.id
-        redirect_to questions_path, alert: "他人の投稿は変更・削除出来ません" 
+        redirect_to questions_path, alert: "他人の投稿は変更・削除出来ません"
       end
     end
 end

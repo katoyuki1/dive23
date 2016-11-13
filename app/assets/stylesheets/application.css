@@ -16,3 +16,9 @@
  *= require font-awesome
  *= require_self
  */
+
+
+.vote {
+  width: 40px;
+  text-align: center;
+}

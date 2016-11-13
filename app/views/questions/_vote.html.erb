@@ -1,0 +1,25 @@
+<div class="vote">
+
+  <% if current_user.vote_plus_question?(question) %>
+    <%= fa_icon 'caret-up 4x', style: "color:#F69C55" %>
+    <%= @vote_count %>
+    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id)), method: :delete do %>
+      <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
+    <% end %>
+  <% elsif current_user.vote_minus_question?(question) %>
+    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id)), method: :delete do %>
+      <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
+    <% end %>
+    <%= @vote_count %>
+    <%= fa_icon 'caret-down 4x', style: "color:#F69C55" %>
+  <% else %>
+    <%= link_to question_votes_path(question, vote_result: true), method: :post do %>
+      <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
+    <% end %>
+    <%= @vote_count %>
+    <%= link_to question_votes_path(question, vote_result: false), method: :post do %>
+      <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
+    <% end %>
+  <% end %>
+
+<!-- #818185  #F69C55 -->
