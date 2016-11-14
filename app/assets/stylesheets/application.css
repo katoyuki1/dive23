@@ -19,6 +19,10 @@
 
 
 /*for header*/
+.row.header {
+    margin-bottom: 30px;
+}
+
 .hlogo {
 	width: 232px;
 	height: 70px;
