@@ -1,31 +1,40 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
 
-<%= render partial: 'star', locals: { question: @question } %>
-<%= render partial: 'vote', locals: { question: @question } %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @question.content %>
-</p>
+<div class="row question_title">
+  <h3><%= @question.title %></h3>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @question.user_id %>
-</p>
+<div class="row">
+  <div class="col-sm-9">
+      <div class="row question">
+      <div class="col-sm-1 question_buttons">
+        <%= render partial: 'star', locals: { question: @question } %>
+        <%= render partial: 'vote', locals: { question: @question } %>
+      </div>
+      <div class="col-sm-11 question_box">
+        <div class="question_content"><%= simple_format(@question.content) %></div>
+        <div class="question_tag"><%= render partial: 'tags', locals: { tags: @question.tags} %></div>
+        <div class="question_btn_and_submitter">
+          <div>
+            <%= link_to "質問内容を変更", edit_question_path(@question) %>
+            <%= link_to "質問を削除", question_path(@question), method: :delete, data: { confirm: '本当に削除しても良いですか?' } %>
+          </div>
+          <div class="pull-right"><%= @question.user.name %></div>
+        </div>
+      </div>
+      </div>
 
-<p>
-  <strong>Tag:</strong>
-  <%= render partial: 'tags', locals: { tags: @question.tags} %>
-</p>
+      <div class="row answer_number"><%= @answers.count %>件の回答</div>
+      <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
 
-  <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
-  <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+      <div class="row answer_title">回答</div>
+      <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+  </div>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+  <div class="col-sm-3">
+    <p>質問を投稿 日時</p>
+  </div>
+</div>

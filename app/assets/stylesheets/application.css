@@ -18,6 +18,29 @@
  */
 
 
+/*for header*/
+.hlogo {
+	width: 232px;
+	height: 70px;
+}
+
+.col-sm-4.pull-right {
+	margin-top: 25px;
+}
+
+.btn.btn-default {
+	background-color: #9fa6ad;
+	border-color: #9fa6ad;
+	color: #FFF;
+	height: 32px;
+	border-radius: 1px;
+}
+
+.btn.btn-default:hover {
+	background-color: #FFA07A;
+	border-color: #FFA07A;
+}
+
 .vote {
   width: 40px;
   text-align: center;
