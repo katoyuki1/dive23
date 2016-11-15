@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/index'
+
   root 'questions#index'
   resources :questions do
   	resources :answers, only: [:create, :edit, :update, :destroy] do
