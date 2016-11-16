@@ -1,9 +1,11 @@
 <% if current_user.favorite?(question) %>
   <%= link_to question_favorite_path(question, question.favorites.find_by(user_id: current_user.id)), method: :delete do %>
-    <p><i class="fa fa-star fa-2x yellow"></i></p>
+    <div class="row star"><i class="fa fa-star fa-2x yellow"></i></div>
   <% end %>
+  <div class="row fav_count text-center"><%= question.favorite_count %></div>
 <% else %>
   <%= link_to question_favorites_path(question), method: :post do %>
-    <p><i class="fa fa-star fa-2x gray"></i></p>
+    <div class="row star"><i class="fa fa-star fa-2x gray"></i></div>
   <% end %>
+  <div class="row fav_count text-center"><%= question.favorite_count %></div>
 <% end %>
