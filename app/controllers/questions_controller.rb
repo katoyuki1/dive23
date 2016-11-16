@@ -16,12 +16,6 @@ class QuestionsController < ApplicationController
   def show
     @answer = @question.answers.build
     @answers = @question.answers
-    @vote_plus = Vote.where(question_id: @question.id, is_plus: true).count
-    @vote_minus = Vote.where(question_id: @question.id, is_plus: false).count
-    @vote_count = @vote_plus + (-1)*@vote_minus
-    if @vote_count.blank?
-      @vote_count = 0
-    end
   end
 
   # GET /questions/new

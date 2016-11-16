@@ -2,24 +2,25 @@
 
   <% if current_user.vote_plus_question?(question) %>
     <%= fa_icon 'caret-up 4x', style: "color:#F69C55" %>
-    <%= @vote_count %>
-    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id)), method: :delete do %>
+    <%= current_user.vote_question_counts(question) %>
+    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id, question_id: question.id, answer_id: nil)), method: :delete do %>
       <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
     <% end %>
   <% elsif current_user.vote_minus_question?(question) %>
-    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id)), method: :delete do %>
+    <%= link_to question_vote_path(question, question.votes.find_by(user_id: current_user.id, question_id: question.id, answer_id: nil)), method: :delete do %>
       <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
     <% end %>
-    <%= @vote_count %>
+    <%= current_user.vote_question_counts(question) %>
     <%= fa_icon 'caret-down 4x', style: "color:#F69C55" %>
   <% else %>
     <%= link_to question_votes_path(question, vote_result: true), method: :post do %>
       <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
     <% end %>
-    <%= @vote_count %>
+    <%= current_user.vote_question_counts(question) %>
     <%= link_to question_votes_path(question, vote_result: false), method: :post do %>
       <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
     <% end %>
   <% end %>
+</div>
 
 <!-- #818185  #F69C55 -->
