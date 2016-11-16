@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
   def favorite?(question)
     self.favorites.find_by(question_id: question.id)
   end
+
+  def vote_plus_question?(question)
+    self.votes.find_by(question_id: question.id, is_plus: true)
+  end
+
+  def vote_minus_question?(question)
+    self.votes.find_by(question_id: question.id, is_plus: false)
+  end
 end

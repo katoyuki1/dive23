@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
 
+
+
 <div class="row question_title">
   <h3><%= @question.title %></h3>
 </div>
@@ -9,8 +11,8 @@
   <div class="col-sm-9">
       <div class="row question">
       <div class="col-sm-1 question_buttons">
-        <p>投票機能</p>
         <%= render partial: 'star', locals: { question: @question } %>
+        <%= render partial: 'vote', locals: { question: @question } %>
       </div>
       <div class="col-sm-11 question_box">
         <div class="question_content"><%= simple_format(@question.content) %></div>
