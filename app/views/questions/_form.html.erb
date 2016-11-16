@@ -11,21 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="admin-questions">
-    <%= f.label :tag_list, "タグ(カンマ区切り)"%>
-    <ul id="question-tags">
-      
-    </ul>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="row new_question_title_box">
+        <div class="col-sm-2"><%= f.label :タイトル %></div>
+        <div class="col-sm-10 pull-right"><%= f.text_field :title, class: "form-control" %></div>
+      </div>
+      <div class="row new_question_box">
+        <%= f.text_area :content, class: "form-control", rows: 10 %>
+      </div>
+      <div class="row new_tag_box">
+        <div class="admin-questions">
+          <%= f.label :tag_list, "タグ(カンマ区切り)"%>
+        <ul id="question-tags">     
+        </ul>
+      </div>
+    </div>
+    <div class="row new_question_submit_button">
+      <%= f.submit "質問を投稿する", class: "btn submit" %>
+    </div>
+</div>
 <% end %>
