@@ -4,33 +4,10 @@
     <p id="alert"><%= alert %></p>
 
     <h4>すべての質問</h4>
-      <div class="row">
-        <% @questions.each do |question| %>
-          <div class="row question_row">
-            <div class="col-sm-3">
-              <div class="row vote_answer_count_area">
-                <div class="col-sm-4">
-                  <div class="row text-center">x</div>
-                  <div class="row text-center">票</div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="row text-center"><%= question.answers.count %></div>
-                  <div class="row text-center">回答</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-9">
-              <div class="row"><h4><%= link_to question.title, question_path(question) %></h4></div>
-              <div class="tags">
-                <div class="row"><%= render partial: 'tags', locals: { tags: question.tags} %></div>
-              </div>
-              <div class="row text-right"><%= link_to question.user.name, question.user %></div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="row">
+      <%= render partial: 'recent_questions', locals: { questions: @questions} %>
+    </div>
   </div>
-
   <div class="col-sm-4">
     <p>サイト統計情報</p>
     <p>最新のタグ</p>
