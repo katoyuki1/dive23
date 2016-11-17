@@ -18,7 +18,7 @@
         <div class="tags">
           <div class="row"><%= render partial: 'tags', locals: { tags: question.tags} %></div>
         </div>
-        <div class="row text-right"><%= link_to question.user.name, question.user %></div>
+        <div class="row text-right"><%= question.created_at.strftime('%Y/%m/%d %H:%M') %>&nbsp;&nbsp;<%= link_to question.user.name, question.user %></div>
       </div>
     </div>
   <% end %>
