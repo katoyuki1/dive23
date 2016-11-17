@@ -19,7 +19,7 @@
       </div>
       <div class="tab-pane fade" id="tab2">
         <div class="row">
-          <p>コンテンツ2</p>
+          <%= render partial: 'popular_questions', locals: { questions: @questions} %>
         </div>
       </div>
     </div>    
