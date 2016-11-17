@@ -1,8 +1,16 @@
-<h1>回答を修正してください</h1>
 
-<%= form_for(@answer, url: question_answer_path) do |f| %>
-    <%= f.text_area :content, class: "form-control", placeholder: 'コメントを入力' %>
-    <%= f.submit 'コメントを編集', class: 'btn btn-primary' %>
-<% end %>
-
-<%= link_to '戻る', question_path(@answer.question) %>
+<div class="row">
+  <h4>回答を編集</h4>
+</div>
+<div class="row">
+  <div class="col-sm-7">
+    <%= form_for(@answer, url: question_answer_path) do |f| %>
+      <div class="row new_question_box">
+        <%= f.text_area :content, class: "form-control", rows: 10 %>
+      </div>
+      <div class="row new_question_submit_button">
+        <%= f.submit '編集内容を保存', class: 'btn submit' %>
+      </div>
+    <% end %>
+  </div>
+</div>
