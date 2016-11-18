@@ -1,0 +1,27 @@
+<div class="vote">
+
+  <% if current_user.vote_plus_answer?(question, answer) %>
+    <%= fa_icon 'caret-up 4x', style: "color:#F69C55" %>
+    <%= current_user.vote_answer_counts(question, answer) %>
+    <%= link_to question_answer_vote_path(question, answer, question.votes.find_by(user_id: current_user.id, question_id: question.id, answer_id: answer.id)), method: :delete do %>
+      <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
+    <% end %>
+  <% elsif current_user.vote_minus_answer?(question, answer) %>
+    <%= link_to question_answer_vote_path(question, answer, question.votes.find_by(user_id: current_user.id, question_id: question.id, answer_id: answer.id)), method: :delete do %>
+      <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
+    <% end %>
+    <%= current_user.vote_answer_counts(question, answer) %>
+    <%= fa_icon 'caret-down 4x', style: "color:#F69C55" %>
+  <% else %>
+    <%= link_to question_answer_votes_path(question, answer, vote_result: true), method: :post do %>
+      <%= fa_icon 'caret-up 4x', style: "color:#818185" %>
+    <% end %>
+    <%= current_user.vote_answer_counts(question, answer) %>
+    <%= link_to question_answer_votes_path(question, answer, vote_result: false), method: :post do %>
+      <%= fa_icon 'caret-down 4x', style: "color:#818185" %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<!-- #818185  #F69C55 -->

@@ -7,19 +7,29 @@ class VotesController < ApplicationController
 
     if params[:answer_id].present?
       @answer = Answer.find(params[:answer_id])
-      @vote = Vote.new(user_id: current_user.id, question_id: @question.id, answer_id: @answer.id, is_plus: true)
+      @vote = Vote.new(user_id: current_user.id, question_id: @question.id, answer_id: @answer.id, is_plus: @vote_result)
+      respond_to do |format|
+        if @answer.user_id == current_user.id
+          format.html { redirect_to question_path(@question), notice: '自分の回答には投票できません' }
+        elsif @vote.save
+          if @vote_result == "true"
+            format.html { redirect_to question_path(@question), notice: '回答に投票（+1）をしました' }
+          else
+            format.html { redirect_to question_path(@question), notice: '回答に投票（-1）をしました' }
+          end
+        end
+      end
     else
       @vote = Vote.new(user_id: current_user.id, question_id: @question.id, is_plus: @vote_result)
-    end
-
-    respond_to do |format|
-      if @question.user_id == current_user.id
-        format.html { redirect_to question_path(@question), notice: '自分の質問には投票できません' }
-      elsif @vote.save
-        if @vote_result == "true"
-          format.html { redirect_to question_path(@question), notice: '投票（+1）をしました' }
-        else
-          format.html { redirect_to question_path(@question), notice: '投票（-1）をしました' }
+      respond_to do |format|
+        if @question.user_id == current_user.id
+          format.html { redirect_to question_path(@question), notice: '自分の質問には投票できません' }
+        elsif @vote.save
+          if @vote_result == "true"
+            format.html { redirect_to question_path(@question), notice: '質問に投票（+1）をしました' }
+          else
+            format.html { redirect_to question_path(@question), notice: '質問に投票（-1）をしました' }
+          end
         end
       end
     end
