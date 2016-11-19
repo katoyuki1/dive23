@@ -28,6 +28,11 @@
 	height: 70px;
 }
 
+.nav img {
+  width: 32px;
+  height: auto;
+}
+
 .col-sm-4.pull-right {
 	margin-top: 25px;
 }
@@ -48,4 +53,8 @@
 .vote {
   width: 40px;
   text-align: center;
+}
+
+.mypage img {
+  width: 300px;
 }
