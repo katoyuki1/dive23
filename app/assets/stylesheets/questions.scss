@@ -2,6 +2,13 @@
   display: none;
 }
 
+/* for question#index sidebar */
+
+.col-sm-4.question_index_sidebar {
+  padding-left: 30px;
+  margin-top: 15px;
+}
+
 /* for toggle tabs for questions */
 .active.toggle_tabs {
   border-top: 2.5px solid #FFA07A;
@@ -81,7 +88,7 @@
 
 .row.question_row {
 	border-bottom:1px solid #ccc;
-	width: 100%;
+	width: 97%;
 	margin-left: 10px;
 }
 
@@ -118,6 +125,10 @@
 
 .tag a:hover {
   text-decoration: none;
+}
+
+.tag_box {
+  margin-bottom: 3px;
 }
 
 /* for boxes in quesion#new */
