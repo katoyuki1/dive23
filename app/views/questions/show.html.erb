@@ -19,8 +19,10 @@
         <div class="question_tag"><%= render partial: 'tags', locals: { tags: @question.tags} %></div>
         <div class="question_btn_and_submitter">
           <div>
-            <%= link_to "質問内容を変更", edit_question_path(@question) %>
-            <%= link_to "質問を削除", question_path(@question), method: :delete, data: { confirm: '本当に削除しても良いですか?' } %>
+            <% if @question.user_id == current_user.id %>
+              <%= link_to "質問内容を変更", edit_question_path(@question) %>
+              <%= link_to "質問を削除", question_path(@question), method: :delete, data: { confirm: '本当に削除しても良いですか?' } %>
+            <% end %>
           </div>
           <div class="pull-right"><%= @question.user.name %></div>
         </div>
