@@ -25,8 +25,16 @@
     </div>    
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-4 question_index_sidebar">
+    <div>
     <p>サイト統計情報</p>
+      <h4><%= @questions_total %> 質問</h4>
+    </div></br>
     <p>最新のタグ</p>
+    <% @tags.each do |t| %>
+      <div class="tag_box">
+        <div class="tag"><%= link_to "#{t.name}", questions_path(tag: t.name) %></div> × <%= t.taggings_count %>
+      </div>
+    <% end %>
   </div>
 </div>
