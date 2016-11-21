@@ -21,7 +21,7 @@
 <% unless @answers.blank? %>
   <% @answers.each do |answer| %>
     <ul>
-      <li><%= link_to answer.question.title, answer %></li>
+      <li><%= link_to answer.question.title, answer.question %></li>
     </ul>
   <% end %>
 <% end %>
