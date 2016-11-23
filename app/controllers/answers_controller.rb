@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to question_path(@question), notice: '回答を投稿しました。' }
       else
-        format.html { redirect_to question_path(@question), notice: '回答を投稿できませんでした。投稿を内容を入力してください。'}
+        format.html { redirect_to question_path(@question), notice: '回答を投稿できませんでした。回答を内容を入力してください。'}
       end
     end
   end
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
         format.html { redirect_to question_path(@answer.question), notice: '回答内容が更新されました。' }
         format.json { render :show, status: :ok, location: @question }
       else
-        format.html { render :edit }
+        format.html { redirect_to edit_question_answer_path(@answer.question, @answer), notice: '回答を変更できませんでした。空欄で投稿は出来ません。' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
       end
     end
