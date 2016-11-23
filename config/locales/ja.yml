@@ -1,5 +1,8 @@
 ---
 ja:
+  attributes:
+    title: タイトル
+    content: 内容
   activerecord:
     errors:
       messages:
