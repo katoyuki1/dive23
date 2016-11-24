@@ -25,3 +25,9 @@
     </ul>
   <% end %>
 <% end %>
+
+
+<div class="row favorite_count"><%= @favorite_questions.count %>件のお気に入り</div>
+<div class="row">
+  <%= render partial: 'favorite_questions', locals: { questions: @favorite_questions} %>
+</div>
