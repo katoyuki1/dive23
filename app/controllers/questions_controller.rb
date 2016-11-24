@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to @question, notice: '質問が投稿されました' }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.html { redirect_to @question, notice: '質問内容が更新されました' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to questions_url, notice: '質問が削除されました' }
       format.json { head :no_content }
     end
   end
