@@ -1,9 +1,12 @@
-<h1>ユーザー一覧</h1>
+<div class="row user_index">
+  <h4>ユーザー</h4>
+</div>
 
-<ul>
+<div class="row user_list">
   <% @users.each do |user| %>
-    <li>
+    <div class="col-sm-3 user_list">
+      <%= user_profile_img(user) %>
       <%= link_to user.name, user %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>
