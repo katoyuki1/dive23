@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to question_path(@question), notice: '回答を投稿しました。' }
       else
-        format.html { redirect_to question_path(@question), notice: '回答を投稿できませんでした。回答を内容を入力してください。'}
+        format.html { redirect_to question_path(@question), notice: '回答を投稿できませんでした。回答内容を入力してください。'}
       end
     end
   end
