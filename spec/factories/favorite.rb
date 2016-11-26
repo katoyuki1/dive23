@@ -1,6 +1,17 @@
 FactoryGirl.define do
   factory :favorite do
-    user_id
-    question_id
+    user_id 1
+    question_id 1 
+  end
+  factory :question do
+    id 1
+    title "foo"
+    content "bar" 
+  end
+  factory :user do
+    id 1
+    name "foo"
+    email "barbar@example.com" 
+    password "abcdeag"
   end
 end
