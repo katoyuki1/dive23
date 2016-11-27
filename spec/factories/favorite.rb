@@ -3,11 +3,6 @@ FactoryGirl.define do
     user_id 1
     question_id 1 
   end
-  factory :question do
-    id 1
-    title "foo"
-    content "bar" 
-  end
   factory :user do
     id 1
     name "foo"

@@ -19,7 +19,7 @@ describe QuestionsController do
   describe 'Get #index' do
     before do
       @q1 = create(:question, title: "1st question", content: "how's ruby")
-      @q2 = create(:question, title: "2nd question", content: "how's rails")
+      @q2 = create(:question_2, title: "2nd question", content: "how's rails")
       get :index
     end
     it 'リクエストは200 OKとなること' do
