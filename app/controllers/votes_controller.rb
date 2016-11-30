@@ -2,14 +2,15 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
+  	@current_user_id = current_user.id
     @question = Question.find(params[:question_id])
     @vote_result = params[:vote_result]
 
     if params[:answer_id].present?
       @answer = Answer.find(params[:answer_id])
-      @vote = Vote.new(user_id: current_user.id, question_id: @question.id, answer_id: @answer.id, is_plus: @vote_result)
+      @vote = Vote.new(user_id: @current_user_id, question_id: @question.id, answer_id: @answer.id, is_plus: @vote_result)
       respond_to do |format|
-        if @answer.user_id == current_user.id
+        if @answer.user_id == @current_user_id
           format.html { redirect_to question_path(@question), notice: '自分の回答には投票できません' }
         elsif @vote.save
           if @vote_result == "true"
@@ -20,9 +21,9 @@ class VotesController < ApplicationController
         end
       end
     else
-      @vote = Vote.new(user_id: current_user.id, question_id: @question.id, is_plus: @vote_result)
+      @vote = Vote.new(user_id: @current_user_id, question_id: @question.id, is_plus: @vote_result)
       respond_to do |format|
-        if @question.user_id == current_user.id
+        if @question.user_id == @current_user_id
           format.html { redirect_to question_path(@question), notice: '自分の質問には投票できません' }
         elsif @vote.save
           if @vote_result == "true"
