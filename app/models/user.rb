@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
-  has_many :favorites, dependent: :destroy
   has_many :questions, through: :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :myquestions, class_name: "Question", dependent: :destroy
   has_many :votes, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
