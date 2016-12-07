@@ -21,8 +21,9 @@ class VotesController < ApplicationController
         end
       end
     else
-      @vote = Vote.new(user_id: @current_user_id, question_id: @question.id, is_plus: @vote_result)
+      @vote = Vote.new(user_id: @current_user_id, question_id: @question.id, answer_id: nil, is_plus: @vote_result)
       respond_to do |format|
+        #binding.pry
         if @question.user_id == @current_user_id
           format.html { redirect_to question_path(@question), notice: '自分の質問には投票できません' }
         elsif @vote.save
